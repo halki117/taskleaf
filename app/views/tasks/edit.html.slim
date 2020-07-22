@@ -1,6 +1,6 @@
 h1 タスクの編集
 
 .nav.justify-content-end
-  =link_to '一覧', task_path, class: 'nav_link'
+  =link_to '一覧', root_path, class: 'nav_link'
 
 = render partial: 'form', locals: {task: @task}
