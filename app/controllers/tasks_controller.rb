@@ -13,7 +13,7 @@ class TasksController < ApplicationController
 
   def create
     task = Task.new(task_params)
-    task.save! #!マークをつける意味？
+    task.save! #!マークをつける意味？ -> p136
     redirect_to tasks_url, notice:"タスクを「#{task.name}」登録しました" #pathとurlの違い？、redirect_toとrenderの違いをはっきりさせよう
   end
 
