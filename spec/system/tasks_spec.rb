@@ -22,12 +22,15 @@ describe 'タスク管理機能', type: :system do
 
     context 'ユーザーBでログインしている時' do
       before do
-        # ユーザーBを作成しておく
-        # ユーザーBでログインしておく
+        FactoryBot.create(:user, name: 'ユーザーB', email: 'b@example.com')
+        visit login_path
+        fill_in 'メールアドレス', with: 'b@example.com'
+        fill_in 'パスワード', with: 'password'
+        click_button 'ログインする'
       end
 
       it 'ユーザーAが表示されたタスクが表示されない' do
-        # ユーザAが作成したタスクが画面上に表示されないことを確認
+        expect(page).not_to have_content '最初のタスク'
       end
       
     end
